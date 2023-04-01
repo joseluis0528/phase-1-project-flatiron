@@ -1,3 +1,21 @@
 .app-name {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.container {
+    text-align: center;
+}
+
+.search {
+    text-align: center;
+}
+
+.data {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: lightcoral;
+}
+
+.high-low {
+    justify-content: space-around;
+}
