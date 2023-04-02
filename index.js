@@ -2,8 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     getDate()
 })
 
-function fetch() {
-    
+function fetch(city) {
+    let apiKey = "GZ46xqn7DcyEqd0L0Xr1ApK2KuJh2NcG"
+    fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/348308?apikey=${apiKey}&language=en-us&details=true&metric=true`)
+    .then(responce => responce.json())
+    .then(data => data)
 }
 
 function getDate () {
