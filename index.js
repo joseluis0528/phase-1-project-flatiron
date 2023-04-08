@@ -13,6 +13,10 @@ function fetch(city) {
     .then(data => data)
 }
 
+function renderData(data) {
+
+}
+
 function getDate () {
     const date = new Date()
     const day = date.getDate()
