@@ -17,6 +17,10 @@ function renderData(data) {
 
 }
 
+function addToFavorites() {
+    
+}
+
 function getDate () {
     const date = new Date()
     const day = date.getDate()
