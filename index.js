@@ -14,11 +14,7 @@ function fetch(city) {
 }
 
 function renderData(data) {
-
-}
-
-function addToFavorites() {
-    
+    const {} = data.DailyForecasts
 }
 
 function getDate () {
@@ -27,4 +23,8 @@ function getDate () {
     const month = date.getMonth() + 1
     const year = date.getFullYear()
     document.querySelector('.date').innerText = `${month}/${day}/${year}`
+}
+
+function addToFavorites() {
+    
 }
