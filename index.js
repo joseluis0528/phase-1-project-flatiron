@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     getDate()
-    citySearch()
-    handleClick()
+    fetchWeather()
 })
 
 function fetchWeather(city) {
@@ -12,13 +11,19 @@ function fetchWeather(city) {
 
     fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${getKey}?apikey=${apiKey}&language=en-us&details=true&metric=true`)
     .then(responce => responce.json())
-    .then(data => renderData(data))
+    .then(data => console.log(data))
 }
 
 function renderData(data) {
     const {Minimum, Maximum} = data.DailyForecasts.temperature;
 
 }
+
+function citySearch() {}
+
+function handleSearchBar() {}
+
+function handleClick() {}
 
 function getDate () {
     const date = new Date()
