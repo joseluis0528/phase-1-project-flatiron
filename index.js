@@ -19,7 +19,12 @@ function renderData(data) {
 
 }
 
-function citySearch() {}
+function citySearch(city) {
+    const input = document.querySelector('.search-bar');
+    input.addEventListener('submit', () => {
+        
+    })
+}
 
 function handleSearchBar() {}
 
