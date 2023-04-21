@@ -11,7 +11,7 @@ function fetchWeather(city) {
 
     fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${getKey}?apikey=${apiKey}&language=en-us&details=true&metric=true`)
     .then(responce => responce.json())
-    .then(data => console.log(data))
+    .then(data => renderData(data))
 }
 
 function renderData(data) {
@@ -22,13 +22,10 @@ function renderData(data) {
 function citySearch(city) {
     const input = document.querySelector('.search-bar');
     input.addEventListener('submit', () => {
-        
+        const city = document.querySelector('#city');
+        city.textContent = input.value
     })
 }
-
-function handleSearchBar() {}
-
-function handleClick() {}
 
 function getDate () {
     const date = new Date()
