@@ -16,7 +16,8 @@ function fetchWeather(city) {
 
 function renderData(data) {
     const {Minimum, Maximum} = data.DailyForecasts.temperature;
-
+    const {wind} = data.DailyForecasts.wind;
+    const {name} = data.name
 }
 
 function citySearch(city) {
