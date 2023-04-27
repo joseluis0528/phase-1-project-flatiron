@@ -37,5 +37,8 @@ function getDate () {
 }
 
 function addToFavorites() {
-    
+    const getRemoveBtn = document.querySelector('#remove-btn');
+    getRemoveBtn.addEventListener('click', () => {
+        console.log('click!')
+    })
 }
