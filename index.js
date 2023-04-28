@@ -4,14 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function fetchWeather(city) {
-    let apiKey = "GZ46xqn7DcyEqd0L0Xr1ApK2KuJh2NcG"
-    const getKey = fetch(`"http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${city}&language=en-us&details=true"`)
+    let apiKey = 'GZ46xqn7DcyEqd0L0Xr1ApK2KuJh2NcG'
+    const getKey = fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${city}&language=en-us&details=true`)
     .then(response => response.json())
-    .then(data => data.key)
+    .then(data => console.log(data.map(detail => parseInt(detail.Key))[0]))
 
-    fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${getKey}?apikey=${apiKey}&language=en-us&details=true&metric=true`)
-    .then(responce => responce.json())
-    .then(data => renderData(data))
+    // fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${getKey}?apikey=${apiKey}&language=en-us&details=true&metric=true`)
+    // .then(responce => responce.json())
+    // .then(data => renderData(data))
 }
 
 function renderData(data) {
