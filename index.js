@@ -1,17 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
     getDate()
-    fetchWeather()
+    //fetchKey()
+    //fetchData()
+    citySearch()
 })
 
-function fetchWeather(city) {
-    let apiKey = 'GZ46xqn7DcyEqd0L0Xr1ApK2KuJh2NcG'
-    const getKey = fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${city}&language=en-us&details=true`)
-    .then(response => response.json())
-    .then(data => console.log(data.map(detail => parseInt(detail.Key))[0]))
+let apiKey = 'GZ46xqn7DcyEqd0L0Xr1ApK2KuJh2NcG';
+// parseInt(detail.Key))[0])
 
-    // fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${getKey}?apikey=${apiKey}&language=en-us&details=true&metric=true`)
-    // .then(responce => responce.json())
-    // .then(data => renderData(data))
+function fetchData(city) {
+    fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${city}&language=en-us&details=true`)
+    .then(response => response.json())
+    .then(data => (data.map( details => {
+        let cityKey = details.Key
+        fetch(`http://dataservice.accuweather.com/locations/v1/cities/neighbors/${cityKey}?apikey=${apiKey}`)
+        .then(responce => responce.json())
+        .then(data => console.log(data))       
+    })))
 }
 
 function renderData(data) {
@@ -23,8 +28,8 @@ function renderData(data) {
 function citySearch(city) {
     const input = document.querySelector('.search-bar');
     input.addEventListener('submit', () => {
-        const city = document.querySelector('#city');
-        city.textContent = input.value
+        const getCity = document.querySelector('#city');
+        getCity.textContent = input.value
     })
 }
 
