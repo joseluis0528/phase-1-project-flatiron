@@ -13,16 +13,15 @@ function fetchData(city) {
     .then(response => response.json())
     .then(data => (data.map( details => {
         let cityKey = details.Key
-        fetch(`http://dataservice.accuweather.com/locations/v1/cities/neighbors/${cityKey}?apikey=${apiKey}`)
+        fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${cityKey}?apikey=${apiKey}&language=en-us&details=true&metric=true`)
         .then(responce => responce.json())
-        .then(data => console.log(data))       
+        .then(data => this.renderData(data))       
     })))
 }
 
 function renderData(data) {
-    const {Minimum, Maximum} = data.DailyForecasts.temperature;
-    const {wind} = data.DailyForecasts.wind;
-    const {name} = data.name
+
+    console.log(data['DailyForecasts']['Temperature'])
 }
 
 function citySearch(city) {
